@@ -37,3 +37,18 @@
 * If application.properties file does not specify spring.profiles.active, then default service will bw used.
 * If application.properties file does specify spring.profiles.active, then default profile will be ignored.
 
+### component scan
+* By default, Spring searches beans in package (and its sub packages) where Application (main) file is located.
+* If you want Spring scan other packages you need add @ComponentScan(basePackages = {"com.guru.spring", "com.guru.pet"}) on Application class.
+
+### Spring configuration options
+* XML Based - legacy, but supported
+* Annotation based configuration - use Component Scan and Stereotypes (@Controller, @Service, @Component, @Repository).
+* Java based configuration - use @Configuration and @Beans
+
+### refactoring Annotation configuration to Java configuration 
+* Getting rid of component scan annotation (in huge projects it might be problem to have too much to scan).
+* Delete @Service annotation from service class.
+* Create configuration class and annotate it with @Configuration
+* Create constructor of service (without declaring it) and annotate it with @Bean
+
