@@ -31,4 +31,9 @@
 * Constructor injected controller should have qualifier named the same as services above, e.g. @Qualifier("i18nService").
 * All needed services should have profile names above the class, e.g. @Profile("ES"). And each service should have other namings.
 * Control or choose service by entering its profile name in application.properties file, e.g. spring.profiles.active=ES
- 
+
+### default profiles
+* You can set default property name in service like - @Profile({"ES", "default"})
+* If application.properties file does not specify spring.profiles.active, then default service will bw used.
+* If application.properties file does specify spring.profiles.active, then default profile will be ignored.
+
