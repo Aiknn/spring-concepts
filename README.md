@@ -17,3 +17,9 @@
 * Property injected controller class should have @Qualifier("propertyGreetingService") and @Autowired above the injected interface.
 * Constructor injected controller class should have @Qualifier("constructorGreetingService") in constructor parameters before the interface name. And NO @Autowired.
 * Setter injected controller class should have @Qualifier("setterGreetingService") and @Autowired above the setter.
+
+### primary bean
+* If there are 2 or more services to be injected, then primary bean will have higher priority to be injected.
+* To create primary bean you need put @Primary and @Service above the implementation of interface.
+* If Constructor injected controller have @Qualifier + @Autowired it will use service with @Primary annotation.
+* If Constructor injected controller class have only @Qualifier annotation it will use own service.
