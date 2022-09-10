@@ -3,7 +3,6 @@ package kz.aiknn.springconcepts;
 import kz.aiknn.springconcepts.controllers.ConstructorInjectedController;
 import kz.aiknn.springconcepts.controllers.PropertyInjectedController;
 import kz.aiknn.springconcepts.controllers.SetterInjectedController;
-import kz.aiknn.springconcepts.services.GreetingServiceKazakh;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -31,6 +30,7 @@ public class SpringConceptsApplication {
 		*/
 
 		ApplicationContext ctx = SpringApplication.run(SpringConceptsApplication.class, args);
+		System.out.println("---------------------------");
 
 		System.out.println("Property injected controller");
 		PropertyInjectedController controller = (PropertyInjectedController) ctx.getBean("propertyInjectedController");
