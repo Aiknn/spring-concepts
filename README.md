@@ -23,3 +23,12 @@
 * To create primary bean you need put @Primary and @Service above the implementation of interface.
 * If Constructor injected controller have @Qualifier + @Autowired it will use service with @Primary annotation.
 * If Constructor injected controller class have only @Qualifier annotation it will use own service.
+
+### spring profiles
+* Help segregate your application configuration, and makes them available only in certain environments.
+* Lets you control or point out needed service to be injected (if several implementations of interface) from application.properties.
+* All needed services (interface implementations) should be named, e.g. @Service("i18nService").
+* Constructor injected controller should have qualifier named the same as services above, e.g. @Qualifier("i18nService").
+* All needed services should have profile names above the class, e.g. @Profile("ES"). And each service should have other namings.
+* Control or choose service by entering its profile name in application.properties file, e.g. spring.profiles.active=ES
+ 

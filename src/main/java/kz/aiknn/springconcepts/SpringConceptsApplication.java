@@ -1,9 +1,6 @@
 package kz.aiknn.springconcepts;
 
-import kz.aiknn.springconcepts.controllers.ConstructorInjectedController;
-import kz.aiknn.springconcepts.controllers.MyController;
-import kz.aiknn.springconcepts.controllers.PropertyInjectedController;
-import kz.aiknn.springconcepts.controllers.SetterInjectedController;
+import kz.aiknn.springconcepts.controllers.*;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -51,6 +48,11 @@ public class SpringConceptsApplication {
 		System.out.println("Controller with Primary Bean");
 		MyController controller3 = (MyController) ctx.getBean("myController");
 		System.out.println(controller3.getGreeting());
+		System.out.println("---------------------------");
+
+		System.out.println("Controller with Spring Profiles");
+		I18nController controller4 = (I18nController) ctx.getBean("i18nController");
+		System.out.println(controller4.getGreeting());
 		System.out.println("---------------------------");
 	}
 
