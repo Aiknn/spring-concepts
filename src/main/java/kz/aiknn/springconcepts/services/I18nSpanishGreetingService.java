@@ -1,11 +1,18 @@
 package kz.aiknn.springconcepts.services;
 
-import org.springframework.context.annotation.Profile;
-import org.springframework.stereotype.Service;
+import kz.aiknn.springconcepts.repositories.EnglishGreetingRepository;
 
 //@Profile({"ES", "default"})
 //@Service("i18nService")
 public class I18nSpanishGreetingService implements GreetingService{
+
+    private final EnglishGreetingRepository englishGreetingRepository;
+
+    public I18nSpanishGreetingService(EnglishGreetingRepository englishGreetingRepository) {
+        this.englishGreetingRepository = englishGreetingRepository;
+    }
+
+
     @Override
     public String sayGreeting() {
 

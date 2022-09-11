@@ -54,6 +54,11 @@ public class SpringConceptsApplication {
 		I18nController controller4 = (I18nController) ctx.getBean("i18nController");
 		System.out.println(controller4.getGreeting());
 		System.out.println("---------------------------");
+
+		System.out.println("Factory Beans with Java Config");
+		PetController petController = ctx.getBean("petController", PetController.class);
+		System.out.println("The Best Pet is - " + petController.whichPetIsTheBest());
+		System.out.println("---------------------------");
 	}
 
 }
