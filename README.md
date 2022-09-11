@@ -51,4 +51,3 @@
 * Delete @Service annotation from service class.
 * Create configuration class and annotate it with @Configuration
 * Create constructor of service (without declaring it) and annotate it with @Bean
-

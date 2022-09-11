@@ -2,16 +2,15 @@ package kz.aiknn.springconcepts.config;
 
 import kz.aiknn.pets.PetService;
 import kz.aiknn.pets.PetServiceFactory;
+import kz.aiknn.springconcepts.datasource.FakeDataSource;
 import kz.aiknn.springconcepts.repositories.EnglishGreetingRepository;
 import kz.aiknn.springconcepts.repositories.EnglishGreetingRepositoryImpl;
 import kz.aiknn.springconcepts.services.I18nEnglishGreetingService;
 import kz.aiknn.springconcepts.services.I18nSpanishGreetingService;
 import kz.aiknn.springconcepts.services.PrimaryGreetingService;
 import kz.aiknn.springconcepts.services.PropertyGreetingService;
-import org.springframework.context.annotation.Bean;
-import org.springframework.context.annotation.Configuration;
-import org.springframework.context.annotation.Primary;
-import org.springframework.context.annotation.Profile;
+import org.springframework.beans.factory.annotation.Value;
+import org.springframework.context.annotation.*;
 
 @Configuration
 public class GreetingServiceConfig {
@@ -59,5 +58,16 @@ public class GreetingServiceConfig {
     @Bean
     PetService catPetService(PetServiceFactory petServiceFactory){
         return petServiceFactory.getPetService("cat");
+    }
+
+    @Bean
+    FakeDataSource fakeDataSource(@Value("${guru.username}") String username,
+                                  @Value("${guru.password}") String password,
+                                  @Value("${guru.jdbcurl}") String jdbcUrl){
+        FakeDataSource fakeDataSource = new FakeDataSource();
+        fakeDataSource.setUsername(username);
+        fakeDataSource.setPassword(password);
+        fakeDataSource.setJdbcurl(jdbcUrl);
+        return fakeDataSource;
     }
 }

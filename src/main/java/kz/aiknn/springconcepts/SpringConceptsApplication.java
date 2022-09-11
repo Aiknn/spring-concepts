@@ -1,6 +1,7 @@
 package kz.aiknn.springconcepts;
 
 import kz.aiknn.springconcepts.controllers.*;
+import kz.aiknn.springconcepts.datasource.FakeDataSource;
 import org.springframework.boot.SpringApplication;
 import org.springframework.boot.autoconfigure.SpringBootApplication;
 import org.springframework.context.ApplicationContext;
@@ -59,6 +60,12 @@ public class SpringConceptsApplication {
 		PetController petController = ctx.getBean("petController", PetController.class);
 		System.out.println("The Best Pet is - " + petController.whichPetIsTheBest());
 		System.out.println("---------------------------");
+
+		System.out.println("Using property source");
+		FakeDataSource fakeDataSource = ctx.getBean(FakeDataSource.class);
+		System.out.println(fakeDataSource.getUsername());
+		System.out.println(fakeDataSource.getPassword());
+		System.out.println(fakeDataSource.getJdbcurl());
 	}
 
 }
